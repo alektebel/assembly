@@ -8,7 +8,13 @@ _start:
     // x0 = quotient (3), x1 = remainder (2)
     mov x8, #93
     svc 0
+    divmod:
+        udiv x2, x0, x1
+	msub x3, x0, x2, x1
+	mov x0, x2
+	mov x1, x3
+	ret
+	
 
 // TODO: Implement divmod function
 // Returns quotient in x0, remainder in x1
-divmod:
